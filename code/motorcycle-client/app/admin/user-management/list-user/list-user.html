@@ -1,0 +1,58 @@
+<div class="motor-list-user">
+	
+	<div class="row">
+		<button 
+			class="btn btn-primary" 
+			role="button" 
+			ng-click="listUserCtrl.showAddUserForm = !listUserCtrl.showAddUserForm">
+				<span class="glyphicon glyphicon-plus"></span> 
+				Add User
+		</button>
+	</div>
+
+	<div ng-include="'app/admin/user-management/add-user/add-user.html'" uib-collapse="!listUserCtrl.showAddUserForm"></div>
+	
+	<br>
+
+	<div class="row">
+		<table class="table table-bordered">
+			<tr>
+				<th>#</th>
+				<th>Username</th>
+				<th>Role</th>
+				<th>Remove</th>
+			</tr>
+			<tr ng-repeat-start="user in listUserCtrl.users | orderBy: 'username'"
+				ng-class="user.css">
+				<td>{{ $index + 1 }}</td>
+				<td>{{ user.username}}</td>
+				<td>{{ user.role }}</td>
+				<td>
+					<button class="btn btn-primary" 
+						ng-click="listUserCtrl.doRemove(user.username)"
+						ng-if="!user.isDeletedAtClient">
+							<span class="glyphicon glyphicon-remove"></span> 
+					</button>
+					<button class="btn btn-primary" 
+						ng-click="listUserCtrl.doRemove(user.username, $index)"
+						ng-if="user.isDeletedAtClient">
+							<span class="glyphicon glyphicon-repeat"></span>
+							Undo 
+					</button>
+				</td>
+			</tr>
+			<tr ng-repeat-end></tr>
+		</table>
+
+	<div class="row">
+		<div class="col-sm-1 col-sm-offset-11">
+			<button class="btn btn-success">
+				Apply
+			</button>
+		</div>
+	</div>
+
+	<br>
+
+	</div>
+</div>

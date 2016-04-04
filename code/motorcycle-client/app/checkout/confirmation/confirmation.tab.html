@@ -1,0 +1,24 @@
+<div class="row" ng-controller="confirmationController as confirmationCtrl">
+	<div class="col-sm-6">
+		<h3 class="text-info">Customer Infomation</h3>
+		<p><b class="text-warning">Full Name: </b><small><b>{{ confirmationCtrl.customer.fullname }}</b></small></p>
+		<p><b class="text-warning">Address: </b><small><b>{{ confirmationCtrl.customer.address }}</b></small></p>
+	</div>
+
+	<div class="col-sm-6 motor-confirmation">
+		<h3 class="text-info">Motor Infomations</h3>
+		<div ng-repeat="motor in confirmationCtrl.cart">
+			<div class="col-sm-6">
+				<img ng-src="{{ motor.img_url }}" class="img-responsive">
+			</div>
+
+			<div class="col-sm-6">
+				<div class="hr" ng-show="$index != 0"></div>
+				<p><b class="text-warning">Name: </b><small><b>{{ motor.name }}</b></small></p>
+				<p><b class="text-warning">Color: </b><small><b>{{ motor.color }}</b></small></p>
+				<p><b class="text-warning">Price: </b><small class="text-danger"><b>{{ motor.price }}</b></small></p>
+				<p><b class="text-warning">Supplier: </b><small><b>{{ motor.supplier }}</b></small></p>
+			</div>
+		</div> <!-- end ng-repeat -->
+	</div>
+</div>

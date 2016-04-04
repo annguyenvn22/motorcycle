@@ -1,0 +1,31 @@
+.motor-header a {
+	color: #E45919;
+}
+
+.motor-header a:hover {
+	color: #E49774;
+}
+
+.motor-header .navbar-fixed-top {
+	background-color: #fff;
+}
+
+body {
+	padding-top: 70px;
+}
+
+.motor-header button.btn.btn-primary.btn-lg {
+	margin-right: 20px;
+}
+
+.motor-header strong {
+	color: #DD3B3B;
+}
+
+.motor-header strong span{
+	color: #000;
+}
+
+.motor-header .label.label-success{
+	color: white;
+}

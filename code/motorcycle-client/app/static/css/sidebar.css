@@ -1,0 +1,18 @@
+.motor-sidebar a{
+	color: #E45919;
+}
+
+.motor-sidebar li.active a {
+	background-color: #E45919;
+}
+
+.motor-sidebar li.active a:hover, 
+.motor-sidebar li.active a:focus,
+.motor-sidebar li.active a:active{
+	background-color: #EF8D60;
+}
+
+.motor-sidebar li a:hover {
+	color: #fff;
+	background-color: #E45919;
+}

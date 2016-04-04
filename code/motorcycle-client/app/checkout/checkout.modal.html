@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="checkoutCtrl.closeCheckoutModal()">&times;</button>
+    
+	<ol class="progress-tracker">
+	  <li 
+	  	class="step {{ tab.active ? 'active': '' }}" 
+	  	ng-repeat="tab in checkoutCtrl.tabs">
+	  		<span class="step-name">
+	  			<span ng-show="!tab.isPassed" class="label label-default">{{ tab.title }}</span>
+	  			<span ng-show="tab.isPassed" class="label label-success">{{ tab.title }}</span>
+	  			<span class="glyphicon glyphicon-ok text-success" ng-show="tab.isPassed"></span>
+	  		</span>
+	  </li>
+	</ol>
+
+</div>
+
+
+<div class="modal-body">
+
+  	
+	<uib-tabset>
+		<uib-tab ng-repeat="tab in checkoutCtrl.tabs" active="tab.active" select="checkoutCtrl.doActiveTab($index)" disable="tab.disable">
+			<uib-tab-heading>{{ tab.title }}</uib-tab-heading>
+			<div ng-include="tab.templateUrl"></div>
+		</uib-tab>
+
+	</uib-tabset>
+
+
+</div> <!-- /.modal-body -->
+
+<div class="modal-footer">
+	
+	<div class="step-2-buttons" ng-show="checkoutCtrl.tabs[1].active">
+		<button class="btn btn-warning" ng-click="checkoutCtrl.gotoStep1()">
+			<span class="glyphicon glyphicon-arrow-left"></span> 
+			<b> Back</b>
+		</button>
+		<button class="btn btn-warning" ng-click="checkoutCtrl.gotoStep3()">
+			<b>Next </b>
+			<span class="glyphicon glyphicon-arrow-right"></span>
+		</button>
+	</div>
+
+	<div class="step-3-buttons" ng-show="checkoutCtrl.tabs[2].active">
+	<button class="btn btn-warning" ng-click="checkoutCtrl.gotoStep2()">
+			<span class="glyphicon glyphicon-arrow-left"></span> 
+			<b> Back</b>
+	</button>
+		<button class="btn btn-success" ng-click="checkoutCtrl.done()" ng-show="!checkoutCtrl.tabs[2].isPassed">Done</button>
+		<button class="btn btn-default" ng-click="checkoutCtrl.closeCheckoutModal()" ng-show="checkoutCtrl.tabs[2].isPassed">Close</button>
+	</div>
+
+</div> <!-- ./modal-footer -->

@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked text-left motor-sidebar"
+	ng-controller="adminSidebarController as adminSidebarCtrl">
+		<li role="presentation"
+			ng-repeat="menu in adminSidebarCtrl.menus"
+			class="{{ menu.active }}"
+			ng-click="adminSidebarCtrl.setActive($index)">
+				<a ui-sref="{{ menu.state }}">{{ menu.name }}</a>
+		</li>
+</ul>

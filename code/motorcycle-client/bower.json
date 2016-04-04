@@ -1,0 +1,28 @@
+{
+  "name": "motorcycle-client",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "annvc",
+    "nhubd"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.8",
+    "ng-file-upload-shim": "~11.0.0",
+    "ng-file-upload": "~11.0.0",
+    "angular-cookie": "~4.0.9",
+    "angular-cookies": "~1.4.8",
+    "angular-animate": "~1.4.8"
+  }
+}

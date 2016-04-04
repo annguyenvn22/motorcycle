@@ -1,0 +1,9 @@
+.motor-list img {
+    with: 100px;
+    height: 100px;
+}
+
+.motor-list .contain-table {
+	max-height: 500px;
+    overflow-y: auto;
+}

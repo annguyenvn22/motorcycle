@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Motorcycle</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="app/static/css/header.css" rel="stylesheet">
+		<link href="app/static/css/global.css" rel="stylesheet">
+		<link href="app/static/css/homepage.css" rel="stylesheet">
+		<link href="app/static/css/sidebar.css" rel="stylesheet">
+		<link href="app/static/css/footer.css" rel="stylesheet">
+		<link href="app/static/css/cart.css" rel="stylesheet">
+		<link href="app/static/css/detail.motor.css" rel="stylesheet">
+		<link href="app/static/css/list.motor.css" rel="stylesheet">
+		<link href="app/static/css/progress.tracker.css" rel="stylesheet">
+		<link href="app/static/css/motor.authentication.tab.css" rel="stylesheet">
+		<link href="app/static/css/cart.review.css" rel="stylesheet">
+		<link href="app/static/css/cart.confirmation.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body ng-app="motorcycle">
+		<div class="container" ng-controller="indexController as indexCtrl">
+
+			<div class="row">
+				<div ng-include="indexCtrl.header"></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<div ng-include="indexCtrl.sidebar"></div>
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+					<div ui-view></div>
+				</div>
+			</div>
+			
+			<div ng-include="indexCtrl.footer"></div>
+		</div>
+		
+
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+		<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+
+		<script src="app/motorcycle.js"></script>
+		<script src="app/signup/signup.controller.js"></script>
+		<script src="app/signup/signup.service.js"></script>
+		<script src="app/homepage/homepage.service.js"></script>
+		<script src="app/homepage/homepage.controller.js"></script>
+		<script src="app/cart/cart.service.js"></script>
+		<script src="app/header/header.controller.js"></script>
+		<script src="app/cart/cart.controller.js"></script>
+		<script src="app/login/login.service.js"></script>
+		<script src="app/admin/user-management/user.service.js"></script>
+		<script src="app/admin/user-management/list-user/list-user.controller.js"></script>
+		<script src="app/admin/sidebar/admin.sidebar.controller.js"></script>
+		<script src="app/admin/motor.management/motor.service.js"></script>
+		<script src="app/admin/motor.management/list.motor/list.motor.controller.js"></script>
+		<script src="app/admin/motor.management/add.motor/add.motor.controller.js"></script>
+		<script src="app/upload.file/upload.file.directive.js"></script>
+		<script src="app/upload.file/upload.file.service.js"></script>
+		<script src="app/login/login.controller.js"></script>
+		<script src="app/admin/motor.management/c.sharp.name.style.filter.js"></script>
+		<script src="app/checkout/checkout.controller.js"></script>
+		<script src="app/checkout/authentication/authentication.tab.controller.js"></script>
+		<script src="app/checkout/review.your.cart/review.your.cart.controller.js"></script>
+		<script src="app/checkout/confirmation/confirmation.controller.js"></script>
+		
+
+	</body>
+</html>

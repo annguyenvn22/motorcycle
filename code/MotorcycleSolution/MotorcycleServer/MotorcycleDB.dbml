@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="motorcycle" Class="MotorcycleDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SANBOX\SQLEXPRESS;Initial Catalog=motorcycle;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="motorcycleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.customer" Member="customers">
+    <Type Name="customer">
+      <Column Name="username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fullname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="role" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="customer_invoice" Member="invoices" ThisKey="username" OtherKey="customer" Type="invoice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.motorcycle" Member="motorcycles">
+    <Type Name="motorcycle">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="supplier" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="is_sold" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="img_url" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="motorcycle_invoice_detail" Member="invoice_details" ThisKey="id" OtherKey="motorcycle_id" Type="invoice_detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.invoice" Member="invoices">
+    <Type Name="invoice">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="customer" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="date_created" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="total_price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="is_resolved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="invoice_invoice_detail" Member="invoice_details" ThisKey="id" OtherKey="invoice_id" Type="invoice_detail" />
+      <Association Name="customer_invoice" Member="customer1" ThisKey="customer" OtherKey="username" Type="customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.invoice_detail" Member="invoice_details">
+    <Type Name="invoice_detail">
+      <Column Name="invoice_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="motorcycle_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="invoice_invoice_detail" Member="invoice" ThisKey="invoice_id" OtherKey="id" Type="invoice" IsForeignKey="true" />
+      <Association Name="motorcycle_invoice_detail" Member="motorcycle" ThisKey="motorcycle_id" OtherKey="id" Type="motorcycle" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,4 @@
+div.col-sm-6.motor-confirmation {
+	max-height: 300px;
+    overflow-y: auto;
+}

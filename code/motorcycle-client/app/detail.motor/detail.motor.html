@@ -1,0 +1,77 @@
+
+<div class="motor-detail">
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<h2>{{ motorDetailCtrl.motor.name | cSharpNameStyle}}</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<img ng-src="{{ motorDetailCtrl.motor.img_url }}"
+					class="img-responsive img-rounded">
+		</div>
+
+		<div class="col-sm-5 col-sm-5-offset-1 ">
+      <div class="row"> 
+  			<h3>
+  				<small>Price: </small>
+  				<strong>{{ motorDetailCtrl.motor.price | currency : '$' : 0 }}</strong>
+  			</h3>
+      </div>
+      
+      <div class="row">
+        <h4>
+          <small>Color: </small>
+          {{ motorDetailCtrl.motor.color | cSharpNameStyle }}
+        </h4>
+      </div>
+      
+      <div class="row">
+        <h4>
+          <small>Type: </small>
+          {{ motorDetailCtrl.motor.type | cSharpNameStyle }}
+        </h4>
+      </div>
+
+      <div class="row">
+        <h4>
+          <small>Supplier: </small>
+          {{ motorDetailCtrl.motor.supplier | cSharpNameStyle }}
+        </h4>
+      </div>
+			<div class="row">
+        
+      			 <a 
+                      class="btn btn-primary" 
+                      role="button" 
+                      ng-mouseover="motorDetailCtrl.mouseOver(motorDetailCtrl.motor)" 
+                      ng-mouseleave="motorDetailCtrl.mouseLeave(motorDetailCtrl.motor)" 
+                      ng-style="motorDetailCtrl.motor.css"
+                      ng-click="motorDetailCtrl.toggleAddRemoveItem(motorDetailCtrl.motor)">
+
+
+                        <span 
+                          class="glyphicon glyphicon-shopping-cart" 
+                          ng-show="motorDetailCtrl.motor.showAddToCartTextAndIcon">
+                        </span>
+                        <span class="add-to-cart" ng-show="motorDetailCtrl.motor.showAddToCartTextAndIcon">
+                               Add to cart
+                        </span>
+
+                        <span 
+                              class="glyphicon glyphicon-plus" 
+                              ng-show="motorDetailCtrl.motor.showPlus">
+                        </span>
+
+                        <span 
+                              class="glyphicon glyphicon-minus" 
+                              ng-show="motorDetailCtrl.motor.showMinus">
+                        </span>
+                </a>
+      </div>
+		</div>
+	</div>
+
+</div>

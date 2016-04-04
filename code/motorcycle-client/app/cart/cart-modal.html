@@ -1,0 +1,75 @@
+<div class="motor-cart">
+  <div class="modal-header">
+      <button type="button" class="close" ng-click="cartCtrl.closeCartModal()">&times;</button>
+      <h4 class="modal-title">Cart</h4>
+  </div>
+
+
+  <div class="modal-body">
+    <div 
+    class="row" 
+    ng-repeat="motor in cartCtrl.motors"
+    ng-class-odd="'motor-cart-odd'">
+
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <img ng-src="{{ motor.img_url }}" class="img-responsive img-thumbnail">
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <p><a ui-sref="detail({id: motor.id})" ng-click="cartCtrl.closeCartModal()"><strong>{{ motor.name | cSharpNameStyle }}</strong></a></p>
+      </div>
+
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <button 
+        class="btn btn-primary"
+        data-toggle="tooltip" 
+        data-placement="bottom" 
+        title="Delete From Cart"
+        ng-click="cartCtrl.removeMotorFromCart(motor.id)">
+
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+      </div>
+
+    </div>
+    <div ng-show="cartCtrl.motors.length == 0">
+      <h1 class="head">
+        There's no item in your cart. Return homepage and
+        pick some motors. :)
+      </h1>
+    </div>
+  </div>
+
+
+  <div class="modal-footer">
+      <div class="row" ng-hide="cartCtrl.motors.length == 0">
+          <div class="col-sm-4 col-sm-offset-8">
+            <small>Total Price: </small>
+            <strong>
+              {{ cartCtrl.totalPrice | currency : '$' : 0}}
+            </strong>
+          </div>
+      </div>
+      <div class="row">
+
+        
+        <div class="col-xs-12 col-sm-12">
+          <button 
+            class="btn btn-danger" 
+            ng-click="cartCtrl.removeAll()"
+            ng-disabled="cartCtrl.motors.length == 0">
+              Remove All
+          </button>
+
+          <a role="button" class="btn btn-info" ng-disabled="cartCtrl.motors.length == 0">
+            Detail
+          </a>
+
+          <a role="button" class="btn btn-success" ng-if="cartCtrl.motors.length" ng-click="cartCtrl.openCheckoutModal()">
+            Check Out
+          </a>
+        </div>
+        
+      </div> <!-- /.row -->
+  </div>
+</div>

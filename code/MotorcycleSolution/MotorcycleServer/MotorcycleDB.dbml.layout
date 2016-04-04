@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MotorcycleDB">
+  <DataContextMoniker Name="/MotorcycleDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="43c52797-aadd-47b4-b394-073841384900" absoluteBounds="2.75, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MotorcycleDBDataContext/customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="713a6b65-a270-44cb-8b8b-7e2f45bdcbb7" absoluteBounds="2.7649999999999997, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="138c3b8c-78ca-4e4d-ae9f-f5a2fe2df389" absoluteBounds="5.25, 0.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/MotorcycleDBDataContext/motorcycle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fa82c94-747e-4800-bbbb-65d5d3f01613" absoluteBounds="5.2650000000000006, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f1e95044-ed30-4e12-9a5b-a453ddf8fd49" absoluteBounds="1.5, 3.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MotorcycleDBDataContext/invoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2dad749-520b-479a-9603-f1ab5caaa596" absoluteBounds="1.5150000000000001, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 2.52089680989583); (3.125 : 3.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MotorcycleDBDataContext/customer/customer_invoice" />
+      <nodes>
+        <classShapeMoniker Id="43c52797-aadd-47b4-b394-073841384900" />
+        <classShapeMoniker Id="f1e95044-ed30-4e12-9a5b-a453ddf8fd49" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8d56d436-be1d-4316-b5af-ce21200cd512" absoluteBounds="5, 3.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MotorcycleDBDataContext/invoice_detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a90fe4cf-0595-4c2f-9d01-84f64083a8a8" absoluteBounds="5.015, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 4.56814697265625); (5 : 4.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MotorcycleDBDataContext/invoice/invoice_invoice_detail" />
+      <nodes>
+        <classShapeMoniker Id="f1e95044-ed30-4e12-9a5b-a453ddf8fd49" />
+        <classShapeMoniker Id="8d56d436-be1d-4316-b5af-ce21200cd512" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 2.97280110677083); (6.125 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MotorcycleDBDataContext/motorcycle/motorcycle_invoice_detail" />
+      <nodes>
+        <classShapeMoniker Id="138c3b8c-78ca-4e4d-ae9f-f5a2fe2df389" />
+        <classShapeMoniker Id="8d56d436-be1d-4316-b5af-ce21200cd512" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,122 @@
+<div id="addMotorForm" ng-controller="addMotorController as addMotorCtrl">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1">
+            <form class="form-horizontal" name="addMotorForm" ng-submit="addMotorCtrl.doCreateNewMotor()">
+                
+                <div class="form-group" ng-show="addMotorForm.motorName.$error.required && addMotorForm.motorName.$touched">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <span><strong>Motor Name</strong> is required</span> <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="addMotorForm.motorPrice.$error.required && addMotorForm.motorPrice.$touched">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <span><strong>Motor Price</strong> is required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="#name" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" placeholder="Motor Name" ng-model="addMotorCtrl.newMotor.name" required name="motorName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="#price" class="col-sm-3 control-label">Price</label>
+                    <div class="col-sm-5">
+                        <input type="number" class="form-control" id="price" placeholder="Price" ng-model="addMotorCtrl.newMotor.price" required name="motorPrice">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="#img" class="col-sm-3 control-label">Image</label>
+                    <div class="col-sm-6">
+                        <input type="file" ngf-select ng-model="addMotorCtrl.newMotor.img_url" class="form-control" id="img" name="file" accept="image/*">
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary" ng-click="addMotorCtrl.doUpload(addMotorCtrl.newMotor.img_url)" ng-show="addMotorCtrl.newMotor.img_url" type="button">
+                            <span class="glyphicon glyphicon-upload"></span>
+                            Upload
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-success" ng-show="addMotorCtrl.showUploadedImageSuccessfully">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            Your image is uploaded successfully
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-danger" ng-show="addMotorCtrl.showUploadedImageFailed">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            Your image is uploaded Fail, Please try again!
+                        </div>
+                    </div>
+                </div>
+                
+               <div class="form-group">
+                    <label for="#color" class="col-sm-3 control-label">Color</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="color" placeholder="Color" ng-model="addMotorCtrl.newMotor.color" name="motorColor">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="#type" class="col-sm-3 control-label">Type</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="type" ng-model="addMotorCtrl.newMotor.type">
+                            <option value="motor" selected="selected">Motor</option>
+                            <option value="scooter">Scooter</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="#supplier" class="col-sm-3 control-label">Supplier</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="supplier" placeholder="Supplier Name" ng-model="addMotorCtrl.newMotor.supplier" name="motorSupplier">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-success" ng-show="addMotorCtrl.showCreatedMotorSuccessfully">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            {{ addMotorCtrl.newMotor.name }} is added successfully
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-danger" ng-show="addMotorCtrl.showCreatedMotorFailed">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            {{ addMotorCtrl.newMotor.name }} is failed to create, Please try again!
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <div class="col-sm-1 col-sm-offset-10">
+                        <button class="btn btn-success" ng-disabled="addMotorForm.$invalid" type="submit">
+                            Add Motor
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div> <!-- /.col-lg-8 col-lg-offset-1 -->
+    </div> <!-- /.row -->
+</div>  <!-- ./collapse -->

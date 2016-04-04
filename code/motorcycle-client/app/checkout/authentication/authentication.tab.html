@@ -1,0 +1,111 @@
+<div class="row motor-authentication-tab" ng-controller="authenticationController as authenticationCtrl">
+    <div class="col-sm-6">
+        <form class="form-horizontal" role="form" name="loginForm" ng-submit="authenticationCtrl.doLogin()">
+            <div class="form-group">
+                <legend>Login</legend>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label for="username">Username</label>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <input type="text" class="form-control" id="username" ng-model="authenticationCtrl.user.username" required autofocus />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <input type="password" class="form-control" id="password" ng-model="authenticationCtrl.user.password" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div class="alert alert-danger" ng-show="authenticationCtrl.showLoginFailAlert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        Invalid <strong>username</strong> or <strong>password</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Login</button>
+                </div>
+            </div>
+        </form>
+    </div> <!-- end login side -->
+
+	<div class="col-sm-6">
+		<div uib-collapse="authenticationCtrl.collapseSignupForm">
+			<form action="" class="form-horizontal" role="form" ng-submit="authenticationCtrl.signup()" name="signupForm">
+				
+				<div class="form-group">
+					<legend>Sign Up</legend>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<label for="username">Username</label>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						<input type="text" class="form-control" id="username" ng-model="authenticationCtrl.newUser.username" required ng-minlength="4">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<label for="password">Password</label>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						<input type="password" class="form-control" id="password" ng-model="authenticationCtrl.newUser.password" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<label for="confirmPassword">Confirm Password</label>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						<input type="password" class="form-control" id="confirmPassword" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<label for="fullname">Full Name</label>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						<input type="text" class="form-control" id="fullname" ng-model="authenticationCtrl.newUser.fullname" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<label for="address">Address</label>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						<input type="text" class="form-control" id="address" ng-model="authenticationCtrl.newUser.address" required>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="text-right">
+							<button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid">Sign Up</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div> <!-- end collapse -->
+				 <div class="form-group">
+	                <div class="alert alert-success" ng-show="authenticationCtrl.showSignupSuccessAlert">
+	                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                    Your account has been created successfully!
+	                </div>
+	            </div>
+	</div>	
+
+</div>

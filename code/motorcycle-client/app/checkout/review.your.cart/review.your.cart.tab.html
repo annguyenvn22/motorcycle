@@ -1,0 +1,32 @@
+<div class="row motor-review" ng-controller="reviewYourCartController as reviewYourCartCtrl">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image URL</th>
+            <th>Color</th>
+            <th>Supplier</th>
+            <th>Type</th>
+            <th>Remove</th>
+        </tr>
+        <tr ng-repeat-start="motor in reviewYourCartCtrl.motors | orderBy: 'name'"
+            ng-class="motor.css">
+            <td>{{ motor.id }}</td>
+            <td>{{ motor.name | cSharpNameStyle }}</td>
+            <td>{{ motor.price | currency : '$' : 0 }}</td>
+            <td><img ng-src="{{ motor.img_url }}" class="img-responsive"></td>
+            <td>{{ motor.color | cSharpNameStyle }}</td>
+            <td>{{ motor.supplier | cSharpNameStyle }}</td>
+            <td>{{ motor.type | cSharpNameStyle }}</td>
+            <td>
+                <button class="btn btn-primary"
+                ng-click="reviewYourCartCtrl.doRemove(motor.id)"
+                <span class="glyphicon glyphicon-trash"></span> 
+                	Remove
+                </button>
+            </td>
+        </tr>
+    	<tr ng-repeat-end></tr>
+	</table>
+</div>

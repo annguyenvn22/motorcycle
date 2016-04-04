@@ -1,0 +1,69 @@
+<div class="motor-list">
+	
+	<div class="row">
+		<button
+			ng-click="listMotorCtrl.showAddMotorForm = !listMotorCtrl.showAddMotorForm" 
+			class="btn btn-primary" 
+			role="button">
+				<span class="glyphicon glyphicon-plus"></span> 
+				Add Motor
+		</button>
+	</div>
+	
+	<div ng-include="'/app/admin/motor.management/add.motor/add.motor.html'" uib-collapse="listMotorCtrl.showAddMotorForm"></div>
+	<br>
+
+	<div class="row contain-table">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Image URL</th>
+				<th>Color</th>
+				<th>Supplier</th>
+				<th>Type</th>
+				<th>Is Sold</th>
+				<th>Remove</th>
+			</tr>
+			
+			<tr ng-repeat-start="motor in listMotorCtrl.motors | orderBy: 'name'"
+				ng-class="motor.css">
+				<td>{{ motor.id }}</td>
+				<td>{{ motor.name | cSharpNameStyle }}</td>
+				<td>{{ motor.price | currency : '$' : 0 }}</td>
+				<td><img ng-src="{{ motor.img_url }}" class="center-block"></td>
+				<td>{{ motor.color | cSharpNameStyle }}</td>
+				<td>{{ motor.supplier | cSharpNameStyle }}</td>
+				<td>{{ motor.type | cSharpNameStyle }}</td>
+				<td>{{ motor.is_sold }}</td>
+				<td>
+					<button class="btn btn-primary" 
+						ng-click="listMotorCtrl.doRemove(motor.id)"
+						ng-if="!motor.isDeletedAtClient">
+							<span class="glyphicon glyphicon-remove"></span> 
+					</button>
+					<button class="btn btn-primary" 
+						ng-click="listMotorCtrl.doRemove(motor.id)"
+						ng-if="motor.isDeletedAtClient">
+							<span class="glyphicon glyphicon-repeat"></span>
+							Undo 
+					</button>
+				</td>
+			</tr>
+			<tr ng-repeat-end></tr>
+		</table>
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-sm-1 col-sm-offset-11">
+			<button class="btn btn-success">
+				Apply
+			</button>
+		</div>
+	</div>
+
+	<br>
+</div>

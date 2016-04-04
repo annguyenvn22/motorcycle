@@ -1,0 +1,55 @@
+<div class="row">
+    <div ng-repeat="motor in homepageCtrl.motors">
+
+
+        <!-- start motor thumbnail item -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 motor-hompage">
+            <div class="thumbnail">
+                <img ng-src="{{ motor.img_url }}">
+                <div class="caption">
+                    <h3>{{ motor.name | cSharpNameStyle }}</h3>
+                    <h4><strong>{{ motor.price | currency :'$': 0}}</strong></h4>
+                    <p><a
+	                    class="btn btn-primary"
+	                    role="button"
+	                    ng-mouseover="homepageCtrl.mouseOver(motor)"
+	                    ng-mouseleave="homepageCtrl.mouseLeave(motor)"
+	                    ng-style="motor.css"
+	                    ng-click="homepageCtrl.toggleAddRemoveItem(motor)">
+
+		                    <span
+			                    class="glyphicon glyphicon-shopping-cart"
+			                    ng-show="motor.showAddToCartTextAndIcon">
+		                    </span>
+
+		                    <span 
+		                    	class="add-to-cart" 
+		                    	ng-show="motor.showAddToCartTextAndIcon">
+				                    Add to cart
+		                    </span>
+
+		                    <span
+			                    class="glyphicon glyphicon-plus"
+			                    ng-show="motor.showPlus">
+		                    </span>
+
+		                    <span
+			                    class="glyphicon glyphicon-minus"
+			                    ng-show="motor.showMinus">
+		                    </span>
+                    </a> <!-- end add to cart button -->
+
+
+
+                    <a 
+	                    class="btn btn-default"
+	                    role="button"
+	                    ui-sref="detail({id: motor.id})">
+		                    Detail
+                    </a></p>
+                </div>
+            </div>
+        </div>
+        <!-- end motor thumbnail item -->
+    </div>
+</div>

@@ -1,0 +1,24 @@
+.motor-cart-odd {
+	background-color: #FBE6BA;
+}
+
+.motor-cart .row {
+	margin-bottom: 5px;
+}
+
+.motor-cart .modal-body {
+	max-height: 420px;
+    overflow-y: auto;
+}
+
+.motor-cart button.btn.btn-primary {
+	margin-top: 35px;
+}
+
+.motor-cart p {
+	margin-top: 40px;
+}
+
+.motor-cart strong {
+	color: #DD3B3B;
+}
